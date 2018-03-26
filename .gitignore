@@ -1,7 +1,9 @@
 data/
 classes/
+output/
 spark-warehouse/
 
+*.ipynb_checkpoints
 
 *.class
 *.log

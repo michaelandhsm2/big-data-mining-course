@@ -45,4 +45,15 @@ Scala 2.11.8 + Spark 2.3.0
   - 1 Master Node + 2 Worker Node
   - Machine Type: n1-standard-1 (1vCPU, 3.75GB Memory, 10GB Disk)
 
++ Cluster Setup
+![Cluster Setup Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw1/pics/Cluster%20Setup.PNG)
+
 ### Output
+
+- Console Output 1
+![Console Output 1 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw1/pics/Results%20-%201.PNG)
+
+- Console Output 2
+![Console Output 2 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw1/pics/Results%20-%202.PNG)
+
+- Output File ([Google Drive Download Link](https://drive.google.com/file/d/1Tow0I7p9pmR5fQ41nOS95xFFPLFDQEbX/view?usp=sharing))
