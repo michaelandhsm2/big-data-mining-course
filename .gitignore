@@ -1,5 +1,7 @@
 data/
 classes/
+output/
+spark-warehouse/
 
 *.class
 *.log

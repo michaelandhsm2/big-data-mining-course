@@ -11816,15 +11816,15 @@ It corresponds to an electric water-heater and an air-conditioner.</li>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-scala"><pre><span></span><span class="c1">// Pre-Configured Spark Context in sc</span>
 
-<span class="n">println</span><span class="o">(</span><span class="s">&quot;Spark Entity:       &quot;</span> <span class="o">+</span> <span class="n">sc</span><span class="o">)</span>
-<span class="n">println</span><span class="o">(</span><span class="s">&quot;Spark version:      &quot;</span> <span class="o">+</span> <span class="n">sc</span><span class="o">.</span><span class="n">version</span><span class="o">)</span>
-<span class="n">println</span><span class="o">(</span><span class="s">&quot;Spark master:       &quot;</span> <span class="o">+</span> <span class="n">sc</span><span class="o">.</span><span class="n">master</span><span class="o">)</span>
-<span class="n">println</span><span class="o">(</span><span class="s">&quot;Running &#39;locally&#39;?: &quot;</span> <span class="o">+</span> <span class="n">sc</span><span class="o">.</span><span class="n">isLocal</span><span class="o">)</span>
+<span class="n">println</span><span class="o">(</span><span class="s">&quot;Spark Entity:       &quot;</span> <span class="o">+</span> <span class="n">spark</span><span class="o">)</span>
+<span class="n">println</span><span class="o">(</span><span class="s">&quot;Spark version:      &quot;</span> <span class="o">+</span> <span class="n">spark</span><span class="o">.</span><span class="n">version</span><span class="o">)</span>
+<span class="n">println</span><span class="o">(</span><span class="s">&quot;Spark master:       &quot;</span> <span class="o">+</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">master</span><span class="o">)</span>
+<span class="n">println</span><span class="o">(</span><span class="s">&quot;Running &#39;locally&#39;?: &quot;</span> <span class="o">+</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">isLocal</span><span class="o">)</span>
 </pre></div>
 
 </div>
@@ -11841,7 +11841,7 @@ It corresponds to an electric water-heater and an air-conditioner.</li>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Spark Entity:       org.apache.spark.SparkContext@61e417be
+<pre>Spark Entity:       org.apache.spark.sql.SparkSession@76d1a466
 Spark version:      2.3.0
 Spark master:       local[*]
 Running &#39;locally&#39;?: true
@@ -11855,11 +11855,11 @@ Running &#39;locally&#39;?: true
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-scala"><pre><span></span><span class="k">import</span> <span class="nn">java.io.File</span>
-<span class="k">val</span> <span class="n">data</span> <span class="k">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="o">(</span><span class="s">&quot;./data/data.txt&quot;</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">data</span> <span class="k">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">textFile</span><span class="o">(</span><span class="s">&quot;./data/data.txt&quot;</span><span class="o">)</span>
 <span class="n">data</span><span class="o">.</span><span class="n">take</span><span class="o">(</span><span class="mi">5</span><span class="o">).</span><span class="n">foreach</span><span class="o">(</span><span class="n">println</span><span class="o">)</span>
 </pre></div>
 
