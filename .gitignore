@@ -2,6 +2,8 @@ data/
 classes/
 output/
 spark-warehouse/
+!**/hw_boilerplate/data
+!**/hw_boilerplate/output
 
 *.ipynb_checkpoints
 

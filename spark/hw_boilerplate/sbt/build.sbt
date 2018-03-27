@@ -1,4 +1,4 @@
-name := "HW2"
+name := "HW1"
 
 version := "1.0"
 

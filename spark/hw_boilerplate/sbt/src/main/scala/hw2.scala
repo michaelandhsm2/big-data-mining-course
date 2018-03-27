@@ -4,7 +4,7 @@ import org.apache.spark.SparkConf
 
 import java.io.File
 
-object HW2 {
+object HW1 {
   def main(args: Array[String]): Unit = {
     if (args.length < 2) {
       System.err.println("Usage: HW1 <inputFile> <outputFile>")
@@ -13,7 +13,7 @@ object HW2 {
 
     val spark = SparkSession
       .builder
-      .appName("HW2")
+      .appName("HW1")
       .getOrCreate()
 
     import spark.implicits._
