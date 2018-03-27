@@ -2,7 +2,7 @@
 
 This is a repository for the Big Data Mining Course in National Taipei University of Technology (NTUT). The repository contains practice files and homework submissions, along with the implementation of the term project.
 
-## Demonstration
+## Contents
 
 ### Code Demo
 

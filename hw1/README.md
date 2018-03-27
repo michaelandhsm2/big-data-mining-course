@@ -39,7 +39,7 @@ It corresponds to an electric water-heater and an air-conditioner.
 ### Implementation Stack
 Scala 2.11.8 + Spark 2.3.0
 
-+ First Iteration (Local) - [Jupyter Notebook](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw1/HW%20%231.ipynb)
++ First Iteration (Local) - [Jupyter Notebook + Apache Toree](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw1/HW%20%231.ipynb)
 + Second Iteration (Local) - [Plain Scala](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw1/sbt/src/main/scala/hw1.scala)
 + Third Iteration ([Google Dataproc](https://cloud.google.com/dataproc/))
   - 1 Master Node + 2 Worker Node
