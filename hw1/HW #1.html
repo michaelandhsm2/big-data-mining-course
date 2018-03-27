@@ -11816,7 +11816,7 @@ It corresponds to an electric water-heater and an air-conditioner.</li>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-scala"><pre><span></span><span class="c1">// Pre-Configured Spark Context in sc</span>
@@ -11841,7 +11841,7 @@ It corresponds to an electric water-heater and an air-conditioner.</li>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Spark Entity:       org.apache.spark.sql.SparkSession@76d1a466
+<pre>Spark Entity:       org.apache.spark.sql.SparkSession@6f11ee02
 Spark version:      2.3.0
 Spark master:       local[*]
 Running &#39;locally&#39;?: true
@@ -11855,37 +11855,14 @@ Running &#39;locally&#39;?: true
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-scala"><pre><span></span><span class="k">import</span> <span class="nn">java.io.File</span>
-<span class="k">val</span> <span class="n">data</span> <span class="k">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">textFile</span><span class="o">(</span><span class="s">&quot;./data/data.txt&quot;</span><span class="o">)</span>
-<span class="n">data</span><span class="o">.</span><span class="n">take</span><span class="o">(</span><span class="mi">5</span><span class="o">).</span><span class="n">foreach</span><span class="o">(</span><span class="n">println</span><span class="o">)</span>
+<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">spark2</span> <span class="k">=</span> <span class="n">spark</span>
+<span class="k">import</span> <span class="nn">spark2.implicits._</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Date;Time;Global_active_power;Global_reactive_power;Voltage;Global_intensity;Sub_metering_1;Sub_metering_2;Sub_metering_3
-16/12/2006;17:24:00;4.216;0.418;234.840;18.400;0.000;1.000;17.000
-16/12/2006;17:25:00;5.360;0.436;233.630;23.000;0.000;1.000;16.000
-16/12/2006;17:26:00;5.374;0.498;233.290;23.000;0.000;2.000;17.000
-16/12/2006;17:27:00;5.388;0.502;233.740;23.000;0.000;1.000;17.000
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11895,9 +11872,7 @@ Running &#39;locally&#39;?: true
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-scala"><pre><span></span><span class="c1">// Remove Header</span>
-<span class="k">val</span> <span class="n">header</span> <span class="k">=</span> <span class="n">data</span><span class="o">.</span><span class="n">first</span>
-<span class="k">val</span> <span class="n">rows</span> <span class="k">=</span> <span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="n">l</span> <span class="k">=&gt;</span> <span class="n">l</span> <span class="o">!=</span> <span class="n">header</span><span class="o">)</span>
+<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">data</span> <span class="k">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">textFile</span><span class="o">(</span><span class="s">&quot;./data/data.txt&quot;</span><span class="o">)</span>
 <span class="n">data</span><span class="o">.</span><span class="n">take</span><span class="o">(</span><span class="mi">5</span><span class="o">).</span><span class="n">foreach</span><span class="o">(</span><span class="n">println</span><span class="o">)</span>
 </pre></div>
 
@@ -11930,25 +11905,37 @@ Running &#39;locally&#39;?: true
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">flattenData</span> <span class="k">=</span> <span class="n">rows</span><span class="o">.</span>
+<div class=" highlight hl-scala"><pre><span></span><span class="c1">// Remove Header</span>
+<span class="k">val</span> <span class="n">header</span> <span class="k">=</span> <span class="n">data</span><span class="o">.</span><span class="n">first</span>
+<span class="k">val</span> <span class="n">rows</span> <span class="k">=</span> <span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="n">l</span> <span class="k">=&gt;</span> <span class="n">l</span> <span class="o">!=</span> <span class="n">header</span><span class="o">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">hArray</span> <span class="k">=</span> <span class="nc">Array</span><span class="o">(</span><span class="s">&quot;Date&quot;</span><span class="o">,</span> <span class="s">&quot;Time&quot;</span><span class="o">,</span> <span class="s">&quot;Active_Power&quot;</span><span class="o">,</span> <span class="s">&quot;Reactive_Power&quot;</span><span class="o">,</span><span class="s">&quot;Voltage&quot;</span><span class="o">,</span><span class="s">&quot;Intensity&quot;</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">flattenData</span> <span class="k">=</span> <span class="n">rows</span><span class="o">.</span>
     <span class="n">flatMap</span><span class="o">{</span> <span class="n">dataString</span> <span class="k">=&gt;</span>
         <span class="n">dataString</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&quot;;&quot;</span><span class="o">).</span>
-            <span class="n">zipWithIndex</span><span class="o">.</span>
-            <span class="n">filter</span><span class="o">{</span>
-                <span class="k">case</span> <span class="o">(</span><span class="n">value</span><span class="o">,</span><span class="n">index</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">!=</span><span class="s">&quot;?&quot;</span>
-            <span class="o">}.</span><span class="n">map</span><span class="o">{</span>
-                <span class="k">case</span> <span class="o">(</span><span class="n">value</span><span class="o">,</span><span class="n">index</span><span class="o">)</span> <span class="k">=&gt;</span> 
-                    <span class="n">index</span> <span class="k">match</span><span class="o">{</span>
-                        <span class="k">case</span> <span class="mi">2</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="s">&quot;Global Active Power&quot;</span><span class="o">,</span><span class="n">value</span><span class="o">.</span><span class="n">toDouble</span><span class="o">)</span>
-                        <span class="k">case</span> <span class="mi">3</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="s">&quot;Global Reactive Power&quot;</span><span class="o">,</span><span class="n">value</span><span class="o">.</span><span class="n">toDouble</span><span class="o">)</span>
-                        <span class="k">case</span> <span class="mi">4</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="s">&quot;Voltage&quot;</span><span class="o">,</span><span class="n">value</span><span class="o">.</span><span class="n">toDouble</span><span class="o">)</span>
-                        <span class="k">case</span> <span class="mi">5</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="s">&quot;Global Intensity&quot;</span><span class="o">,</span><span class="n">value</span><span class="o">.</span><span class="n">toDouble</span><span class="o">)</span>
-                    <span class="o">}</span>
-                <span class="o">}</span>
+        <span class="n">zipWithIndex</span><span class="o">.</span>
+        <span class="n">filter</span><span class="o">{</span>
+            <span class="k">case</span> <span class="o">(</span><span class="n">value</span><span class="o">,</span><span class="n">index</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">!=</span><span class="s">&quot;?&quot;</span>
+        <span class="o">}.</span><span class="n">map</span><span class="o">{</span>
+            <span class="k">case</span> <span class="o">(</span><span class="n">value</span><span class="o">,</span><span class="n">index</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="n">index</span><span class="o">),</span><span class="n">value</span><span class="o">.</span><span class="n">toDouble</span><span class="o">)</span>
+        <span class="o">}</span>
     <span class="o">}</span>
+<span class="n">flattenData</span><span class="o">.</span><span class="n">persist</span><span class="o">()</span>
 <span class="n">flattenData</span><span class="o">.</span><span class="n">take</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="n">foreach</span><span class="o">(</span><span class="n">println</span><span class="o">)</span>
 </pre></div>
 
@@ -11966,16 +11953,16 @@ Running &#39;locally&#39;?: true
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(Global Active Power,4.216)
-(Global Reactive Power,0.418)
+<pre>(Active_Power,4.216)
+(Reactive_Power,0.418)
 (Voltage,234.84)
-(Global Intensity,18.4)
-(Global Active Power,5.36)
-(Global Reactive Power,0.436)
+(Intensity,18.4)
+(Active_Power,5.36)
+(Reactive_Power,0.436)
 (Voltage,233.63)
-(Global Intensity,23.0)
-(Global Active Power,5.374)
-(Global Reactive Power,0.498)
+(Intensity,23.0)
+(Active_Power,5.374)
+(Reactive_Power,0.498)
 </pre>
 </div>
 </div>
@@ -11994,45 +11981,11 @@ Running &#39;locally&#39;?: true
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">count</span> <span class="k">=</span> <span class="n">flattenData</span><span class="o">.</span><span class="n">map</span><span class="o">{</span><span class="k">case</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="n">v</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="mi">1</span><span class="o">)}.</span><span class="n">reduceByKey</span><span class="o">((</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">).</span><span class="n">collectAsMap</span><span class="o">()</span>
-<span class="n">count</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[5]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Map(Global Active Power -&gt; 2049280, Global Reactive Power -&gt; 2049280, Global Intensity -&gt; 2049280, Voltage -&gt; 2049280)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">max</span> <span class="k">=</span> <span class="n">flattenData</span><span class="o">.</span><span class="n">reduceByKey</span><span class="o">{(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="k">if</span> <span class="o">(</span><span class="n">i</span><span class="o">&gt;</span><span class="n">j</span><span class="o">)</span> <span class="n">i</span> <span class="k">else</span> <span class="n">j</span><span class="o">}.</span><span class="n">collectAsMap</span><span class="o">()</span>
-<span class="n">max</span>
+<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">count</span> <span class="k">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">broadcast</span><span class="o">(</span><span class="n">flattenData</span><span class="o">.</span><span class="n">map</span><span class="o">{</span><span class="k">case</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="n">v</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="mi">1</span><span class="o">)}.</span><span class="n">reduceByKey</span><span class="o">((</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">).</span><span class="n">collectAsMap</span><span class="o">())</span>
+<span class="n">count</span><span class="o">.</span><span class="n">value</span>
 </pre></div>
 
 </div>
@@ -12051,7 +12004,7 @@ Running &#39;locally&#39;?: true
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Map(Global Active Power -&gt; 11.122, Global Reactive Power -&gt; 1.39, Global Intensity -&gt; 48.4, Voltage -&gt; 254.15)</pre>
+<pre>Map(Reactive_Power -&gt; 2049280, Active_Power -&gt; 2049280, Intensity -&gt; 2049280, Voltage -&gt; 2049280)</pre>
 </div>
 
 </div>
@@ -12065,8 +12018,8 @@ Running &#39;locally&#39;?: true
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">min</span> <span class="k">=</span> <span class="n">flattenData</span><span class="o">.</span><span class="n">reduceByKey</span><span class="o">{(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="k">if</span> <span class="o">(</span><span class="n">i</span><span class="o">&lt;</span><span class="n">j</span><span class="o">)</span> <span class="n">i</span> <span class="k">else</span> <span class="n">j</span><span class="o">}.</span><span class="n">collectAsMap</span><span class="o">()</span>
-<span class="n">min</span>
+<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">max</span> <span class="k">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">broadcast</span><span class="o">(</span><span class="n">flattenData</span><span class="o">.</span><span class="n">reduceByKey</span><span class="o">{(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="k">if</span> <span class="o">(</span><span class="n">i</span><span class="o">&gt;</span><span class="n">j</span><span class="o">)</span> <span class="n">i</span> <span class="k">else</span> <span class="n">j</span><span class="o">}.</span><span class="n">collectAsMap</span><span class="o">())</span>
+<span class="n">max</span><span class="o">.</span><span class="n">value</span>
 </pre></div>
 
 </div>
@@ -12085,7 +12038,7 @@ Running &#39;locally&#39;?: true
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Map(Global Active Power -&gt; 0.076, Global Reactive Power -&gt; 0.0, Global Intensity -&gt; 0.2, Voltage -&gt; 223.2)</pre>
+<pre>Map(Reactive_Power -&gt; 1.39, Active_Power -&gt; 11.122, Intensity -&gt; 48.4, Voltage -&gt; 254.15)</pre>
 </div>
 
 </div>
@@ -12093,22 +12046,14 @@ Running &#39;locally&#39;?: true
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Task-2---Mean-&amp;-Standard-Deviation">Task 2 - Mean &amp; Standard Deviation<a class="anchor-link" href="#Task-2---Mean-&amp;-Standard-Deviation">&#182;</a></h3>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">average</span> <span class="k">=</span> <span class="n">flattenData</span><span class="o">.</span><span class="n">reduceByKey</span><span class="o">((</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">).</span><span class="n">map</span><span class="o">{</span><span class="k">case</span> <span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">i</span><span class="o">,</span><span class="n">j</span><span class="o">/</span><span class="mi">2049280</span><span class="o">)}.</span><span class="n">collectAsMap</span><span class="o">()</span>
-<span class="n">average</span>
+<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">min</span> <span class="k">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">broadcast</span><span class="o">(</span><span class="n">flattenData</span><span class="o">.</span><span class="n">reduceByKey</span><span class="o">{(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="k">if</span> <span class="o">(</span><span class="n">i</span><span class="o">&lt;</span><span class="n">j</span><span class="o">)</span> <span class="n">i</span> <span class="k">else</span> <span class="n">j</span><span class="o">}.</span><span class="n">collectAsMap</span><span class="o">())</span>
+<span class="n">min</span><span class="o">.</span><span class="n">value</span>
 </pre></div>
 
 </div>
@@ -12127,7 +12072,7 @@ Running &#39;locally&#39;?: true
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Map(Global Active Power -&gt; 1.0916150365005446, Global Reactive Power -&gt; 0.12371447630388221, Global Intensity -&gt; 4.627759310588324, Voltage -&gt; 240.8398579745135)</pre>
+<pre>Map(Reactive_Power -&gt; 0.0, Active_Power -&gt; 0.076, Intensity -&gt; 0.2, Voltage -&gt; 223.2)</pre>
 </div>
 
 </div>
@@ -12135,17 +12080,23 @@ Running &#39;locally&#39;?: true
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Task-2---Mean-&amp;-Standard-Deviation">Task 2 - Mean &amp; Standard Deviation<a class="anchor-link" href="#Task-2---Mean-&amp;-Standard-Deviation">&#182;</a></h3>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">std</span> <span class="k">=</span> <span class="n">flattenData</span><span class="o">.</span>
-    <span class="n">map</span><span class="o">{</span><span class="k">case</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="n">v</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span> <span class="n">scala</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="o">(</span><span class="n">v</span><span class="o">-</span><span class="n">average</span><span class="o">(</span><span class="n">k</span><span class="o">),</span><span class="mi">2</span><span class="o">))}.</span>
-    <span class="n">reduceByKey</span><span class="o">((</span><span class="n">i</span><span class="o">,</span><span class="n">j</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">).</span>
-    <span class="n">map</span><span class="o">{</span><span class="k">case</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="n">v</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="o">(</span><span class="n">v</span><span class="o">/</span><span class="n">count</span><span class="o">(</span><span class="n">k</span><span class="o">)))}.</span><span class="n">collectAsMap</span><span class="o">()</span>
-<span class="n">std</span>
+<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">average</span> <span class="k">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span>
+                <span class="n">broadcast</span><span class="o">(</span><span class="n">flattenData</span><span class="o">.</span><span class="n">reduceByKey</span><span class="o">((</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">).</span><span class="n">map</span><span class="o">{</span><span class="k">case</span> <span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">i</span><span class="o">,</span><span class="n">j</span><span class="o">/</span><span class="mi">2049280</span><span class="o">)}.</span><span class="n">collectAsMap</span><span class="o">())</span>
+<span class="n">average</span><span class="o">.</span><span class="n">value</span>
 </pre></div>
 
 </div>
@@ -12164,7 +12115,7 @@ Running &#39;locally&#39;?: true
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Map(Global Active Power -&gt; 1.0572939031266613, Global Reactive Power -&gt; 0.11272195204783488, Global Intensity -&gt; 4.444395175407247, Voltage -&gt; 3.239985888491343)</pre>
+<pre>Map(Reactive_Power -&gt; 0.12371447630388221, Active_Power -&gt; 1.0916150365005446, Intensity -&gt; 4.627759310588324, Voltage -&gt; 240.8398579745135)</pre>
 </div>
 
 </div>
@@ -12172,22 +12123,17 @@ Running &#39;locally&#39;?: true
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Task-3---Min-Max-Normalization">Task 3 - Min-Max Normalization<a class="anchor-link" href="#Task-3---Min-Max-Normalization">&#182;</a></h3>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">norm</span> <span class="k">=</span> <span class="n">flattenData</span><span class="o">.</span><span class="n">take</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="n">map</span><span class="o">{</span><span class="k">case</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="n">v</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span> <span class="o">(</span><span class="n">v</span><span class="o">-</span><span class="n">min</span><span class="o">(</span><span class="n">k</span><span class="o">))/(</span><span class="n">max</span><span class="o">(</span><span class="n">k</span><span class="o">)-</span><span class="n">min</span><span class="o">(</span><span class="n">k</span><span class="o">)))}</span>
-<span class="n">norm</span>
+<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">std</span> <span class="k">=</span> <span class="n">flattenData</span><span class="o">.</span>
+    <span class="n">map</span><span class="o">{</span><span class="k">case</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="n">v</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span> <span class="n">scala</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="o">(</span><span class="n">v</span><span class="o">-</span><span class="n">average</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">k</span><span class="o">),</span><span class="mi">2</span><span class="o">))}.</span>
+    <span class="n">reduceByKey</span><span class="o">((</span><span class="n">i</span><span class="o">,</span><span class="n">j</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">).</span>
+    <span class="n">map</span><span class="o">{</span><span class="k">case</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="n">v</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="o">(</span><span class="n">v</span><span class="o">/</span><span class="n">count</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">k</span><span class="o">)))}.</span><span class="n">collectAsMap</span><span class="o">()</span>
+<span class="n">std</span>
 </pre></div>
 
 </div>
@@ -12206,7 +12152,49 @@ Running &#39;locally&#39;?: true
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Array((Global Active Power,0.3747963063552418), (Global Reactive Power,0.30071942446043165), (Voltage,0.376090468497577), (Global Intensity,0.37759336099585067), (Global Active Power,0.4783632084012313), (Global Reactive Power,0.31366906474820144), (Voltage,0.33699515347334413), (Global Intensity,0.47302904564315357), (Global Active Power,0.4796306355241717), (Global Reactive Power,0.35827338129496406))</pre>
+<pre>Map(Reactive_Power -&gt; 0.11272195204783488, Active_Power -&gt; 1.0572939031266613, Intensity -&gt; 4.444395175407247, Voltage -&gt; 3.239985888491343)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Task-3---Min-Max-Normalization">Task 3 - Min-Max Normalization<a class="anchor-link" href="#Task-3---Min-Max-Normalization">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">norm</span> <span class="k">=</span> <span class="n">flattenData</span><span class="o">.</span><span class="n">take</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="n">map</span><span class="o">{</span><span class="k">case</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span><span class="n">v</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">k</span><span class="o">,</span> <span class="o">(</span><span class="n">v</span><span class="o">-</span><span class="n">min</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">k</span><span class="o">))/(</span><span class="n">max</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">k</span><span class="o">)-</span><span class="n">min</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">k</span><span class="o">)))}</span>
+<span class="n">norm</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[11]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Array((Active_Power,0.3747963063552418), (Reactive_Power,0.30071942446043165), (Voltage,0.376090468497577), (Intensity,0.37759336099585067), (Active_Power,0.4783632084012313), (Reactive_Power,0.31366906474820144), (Voltage,0.33699515347334413), (Intensity,0.47302904564315357), (Active_Power,0.4796306355241717), (Reactive_Power,0.35827338129496406))</pre>
 </div>
 
 </div>
@@ -12225,24 +12213,22 @@ Running &#39;locally&#39;?: true
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-scala"><pre><span></span><span class="k">object</span> <span class="nc">MyFunctions</span> <span class="o">{</span>
-    <span class="k">def</span> <span class="n">myprint</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
-        <span class="n">println</span><span class="o">(</span><span class="s">&quot;For &quot;</span><span class="o">+</span><span class="n">s</span><span class="o">+</span><span class="s">&quot;:&quot;</span><span class="o">)</span>
-        <span class="n">println</span><span class="o">(</span><span class="s">&quot;        Number of Meaningful Data - &quot;</span> <span class="o">+</span> <span class="n">count</span><span class="o">(</span><span class="n">s</span><span class="o">))</span>
-        <span class="n">println</span><span class="o">(</span><span class="s">&quot;        Maximum Value - &quot;</span> <span class="o">+</span> <span class="n">max</span><span class="o">(</span><span class="n">s</span><span class="o">))</span>
-        <span class="n">println</span><span class="o">(</span><span class="s">&quot;        Minimum Value - &quot;</span> <span class="o">+</span> <span class="n">min</span><span class="o">(</span><span class="n">s</span><span class="o">))</span>
-        <span class="n">println</span><span class="o">(</span><span class="s">&quot;        Mean - &quot;</span> <span class="o">+</span> <span class="n">average</span><span class="o">(</span><span class="n">s</span><span class="o">))</span>
-        <span class="n">println</span><span class="o">(</span><span class="s">&quot;        Standard Deviation - &quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span><span class="o">)</span>
-    <span class="o">}</span>    
-<span class="o">}</span>
+<div class=" highlight hl-scala"><pre><span></span><span class="k">def</span> <span class="n">myprint</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">&quot;For &quot;</span><span class="o">+</span><span class="n">s</span><span class="o">+</span><span class="s">&quot;:&quot;</span><span class="o">)</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">&quot;        Number of Meaningful Data - &quot;</span> <span class="o">+</span> <span class="n">count</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">s</span><span class="o">))</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">&quot;        Maximum Value - &quot;</span> <span class="o">+</span> <span class="n">max</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">s</span><span class="o">))</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">&quot;        Minimum Value - &quot;</span> <span class="o">+</span> <span class="n">min</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">s</span><span class="o">))</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">&quot;        Mean - &quot;</span> <span class="o">+</span> <span class="n">average</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">s</span><span class="o">))</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">&quot;        Standard Deviation - &quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span><span class="o">)</span>
+<span class="o">}</span> 
 
-<span class="nc">MyFunctions</span><span class="o">.</span><span class="n">myprint</span><span class="o">(</span><span class="s">&quot;Global Active Power&quot;</span><span class="o">)</span>
-<span class="nc">MyFunctions</span><span class="o">.</span><span class="n">myprint</span><span class="o">(</span><span class="s">&quot;Global Reactive Power&quot;</span><span class="o">)</span>
-<span class="nc">MyFunctions</span><span class="o">.</span><span class="n">myprint</span><span class="o">(</span><span class="s">&quot;Voltage&quot;</span><span class="o">)</span>
-<span class="nc">MyFunctions</span><span class="o">.</span><span class="n">myprint</span><span class="o">(</span><span class="s">&quot;Global Intensity&quot;</span><span class="o">)</span>
+<span class="n">myprint</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span>
+<span class="n">myprint</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">3</span><span class="o">))</span>
+<span class="n">myprint</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">4</span><span class="o">))</span>
+<span class="n">myprint</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
 </pre></div>
 
 </div>
@@ -12259,14 +12245,14 @@ Running &#39;locally&#39;?: true
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>For Global Active Power:
+<pre>For Active_Power:
         Number of Meaningful Data - 2049280
         Maximum Value - 11.122
         Minimum Value - 0.076
         Mean - 1.0916150365005446
         Standard Deviation - 1.0572939031266613
 
-For Global Reactive Power:
+For Reactive_Power:
         Number of Meaningful Data - 2049280
         Maximum Value - 1.39
         Minimum Value - 0.0
@@ -12280,7 +12266,7 @@ For Voltage:
         Mean - 240.8398579745135
         Standard Deviation - 3.239985888491343
 
-For Global Intensity:
+For Intensity:
         Number of Meaningful Data - 2049280
         Maximum Value - 48.4
         Minimum Value - 0.2
@@ -12297,71 +12283,20 @@ For Global Intensity:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-scala"><pre><span></span><span class="c1">// For implicit conversions from RDDs to DataFrames</span>
-<span class="k">val</span> <span class="n">spark2</span> <span class="k">=</span> <span class="n">spark</span>
-<span class="k">import</span> <span class="nn">spark2.implicits._</span>
+<div class=" highlight hl-scala"><pre><span></span><span class="k">val</span> <span class="n">dataDF</span> <span class="k">=</span> <span class="n">rows</span><span class="o">.</span>
+    <span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&quot;;&quot;</span><span class="o">)).</span>
+    <span class="n">map</span><span class="o">(</span><span class="n">att</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">att</span><span class="o">(</span><span class="mi">0</span><span class="o">),</span> <span class="n">att</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">att</span><span class="o">(</span><span class="mi">2</span><span class="o">)==</span><span class="s">&quot;?&quot;</span><span class="o">)</span> <span class="nc">Double</span><span class="o">.</span><span class="nc">NaN</span> <span class="k">else</span> <span class="o">(</span><span class="n">att</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="n">toDouble</span><span class="o">-</span><span class="n">min</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">2</span><span class="o">)))/(</span><span class="n">max</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">2</span><span class="o">))-</span><span class="n">min</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">2</span><span class="o">))),</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">att</span><span class="o">(</span><span class="mi">3</span><span class="o">)==</span><span class="s">&quot;?&quot;</span><span class="o">)</span> <span class="nc">Double</span><span class="o">.</span><span class="nc">NaN</span> <span class="k">else</span> <span class="o">(</span><span class="n">att</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="n">toDouble</span><span class="o">-</span><span class="n">min</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">3</span><span class="o">)))/(</span><span class="n">max</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">3</span><span class="o">))-</span><span class="n">min</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">3</span><span class="o">))),</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">att</span><span class="o">(</span><span class="mi">4</span><span class="o">)==</span><span class="s">&quot;?&quot;</span><span class="o">)</span> <span class="nc">Double</span><span class="o">.</span><span class="nc">NaN</span> <span class="k">else</span> <span class="o">(</span><span class="n">att</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="n">toDouble</span><span class="o">-</span><span class="n">min</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">4</span><span class="o">)))/(</span><span class="n">max</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">4</span><span class="o">))-</span><span class="n">min</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">4</span><span class="o">))),</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">att</span><span class="o">(</span><span class="mi">5</span><span class="o">)==</span><span class="s">&quot;?&quot;</span><span class="o">)</span> <span class="nc">Double</span><span class="o">.</span><span class="nc">NaN</span> <span class="k">else</span> <span class="o">(</span><span class="n">att</span><span class="o">(</span><span class="mi">5</span><span class="o">).</span><span class="n">toDouble</span><span class="o">-</span><span class="n">min</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">5</span><span class="o">)))/(</span><span class="n">max</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">5</span><span class="o">))-</span><span class="n">min</span><span class="o">.</span><span class="n">value</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">5</span><span class="o">)))</span>
+    <span class="o">)).</span>
+    <span class="n">toDF</span><span class="o">(</span><span class="n">hArray</span><span class="o">(</span><span class="mi">0</span><span class="o">),</span><span class="n">hArray</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span><span class="n">hArray</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span><span class="n">hArray</span><span class="o">(</span><span class="mi">3</span><span class="o">),</span><span class="n">hArray</span><span class="o">(</span><span class="mi">4</span><span class="o">),</span><span class="n">hArray</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>    
 
-<span class="k">object</span> <span class="nc">Norm</span> <span class="o">{</span>
-    <span class="k">def</span> <span class="nc">AP</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="o">{</span>
-        <span class="n">process</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="s">&quot;Global Active Power&quot;</span><span class="o">)</span>
-    <span class="o">}</span> 
-    
-    <span class="k">def</span> <span class="nc">RP</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="o">{</span>
-        <span class="n">process</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="s">&quot;Global Reactive Power&quot;</span><span class="o">)</span>
-    <span class="o">}</span> 
-    
-    <span class="k">def</span> <span class="n">V</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="o">{</span>
-        <span class="n">process</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="s">&quot;Voltage&quot;</span><span class="o">)</span>
-    <span class="o">}</span> 
-    
-    <span class="k">def</span> <span class="n">I</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="o">{</span>
-        <span class="n">process</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="s">&quot;Global Intensity&quot;</span><span class="o">)</span>
-    <span class="o">}</span> 
-    
-    <span class="k">def</span> <span class="n">process</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">k</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="o">{</span>
-        <span class="k">var</span> <span class="n">retVal</span> <span class="k">=</span> <span class="mf">0.0</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">s</span> <span class="o">==</span> <span class="s">&quot;?&quot;</span><span class="o">){</span>
-            <span class="n">retVal</span> <span class="k">=</span> <span class="nc">Double</span><span class="o">.</span><span class="nc">NaN</span>
-        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-            <span class="n">retVal</span> <span class="k">=</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="n">toDouble</span><span class="o">-</span><span class="n">min</span><span class="o">(</span><span class="n">k</span><span class="o">))/(</span><span class="n">max</span><span class="o">(</span><span class="n">k</span><span class="o">)-</span><span class="n">min</span><span class="o">(</span><span class="n">k</span><span class="o">))</span>
-        <span class="o">}</span>
-        <span class="n">retVal</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="k">val</span> <span class="n">dataDF</span> <span class="k">=</span> <span class="n">rows</span><span class="o">.</span>
-                <span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&quot;;&quot;</span><span class="o">)).</span>
-                <span class="n">map</span><span class="o">(</span><span class="n">att</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">att</span><span class="o">(</span><span class="mi">0</span><span class="o">),</span> <span class="n">att</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="nc">Norm</span><span class="o">.</span><span class="nc">AP</span><span class="o">(</span><span class="n">att</span><span class="o">(</span><span class="mi">2</span><span class="o">)),</span> <span class="nc">Norm</span><span class="o">.</span><span class="nc">RP</span><span class="o">(</span><span class="n">att</span><span class="o">(</span><span class="mi">3</span><span class="o">)),</span> <span class="nc">Norm</span><span class="o">.</span><span class="n">V</span><span class="o">(</span><span class="n">att</span><span class="o">(</span><span class="mi">4</span><span class="o">)),</span> <span class="nc">Norm</span><span class="o">.</span><span class="n">I</span><span class="o">(</span><span class="n">att</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span> <span class="o">)).</span>
-                <span class="n">toDF</span><span class="o">(</span><span class="s">&quot;Date&quot;</span><span class="o">,</span> <span class="s">&quot;Time&quot;</span><span class="o">,</span> <span class="s">&quot;Active_Power&quot;</span><span class="o">,</span> <span class="s">&quot;Reactive_Power&quot;</span><span class="o">,</span><span class="s">&quot;Voltage&quot;</span><span class="o">,</span><span class="s">&quot;Intensity&quot;</span><span class="o">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-scala"><pre><span></span><span class="n">dataDF</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="o">(</span><span class="s">&quot;./data/output&quot;</span><span class="o">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-scala"><pre><span></span><span class="n">dataDF</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="o">(</span><span class="s">&quot;records&quot;</span><span class="o">)</span>
+<span class="n">dataDF</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="o">(</span><span class="s">&quot;records&quot;</span><span class="o">)</span>
 <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">&quot;SELECT * FROM records WHERE date = &#39;28/4/2007&#39;&quot;</span><span class="o">).</span><span class="n">show</span><span class="o">(</span><span class="mi">25</span><span class="o">)</span>
 </pre></div>
 
@@ -12414,6 +12349,19 @@ only showing top 25 rows
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-scala"><pre><span></span><span class="n">dataDF</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="o">(</span><span class="s">&quot;./data/output&quot;</span><span class="o">)</span>
+</pre></div>
+
+</div>
 </div>
 </div>
 

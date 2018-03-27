@@ -3,15 +3,14 @@
 ## Description
 
 ### Data
-[News Popularity in Multiple Social Media Platforms Data Set](https://archive.ics.uci.edu/ml/datasets/News+Popularity+in+Multiple+Social+Media+Platforms) - 13 CSV files, 155MB in total
-This is a large data set of news items and their respective social feedback on multiple platforms: Facebook, Google+ and LinkedIn.
-The collected data relates to a period of 8 months, between November 2015 and July 2016, accounting for about 100,000 news items on four different topics: economy, microsoft, obama and palestine.
-This data set is tailored for evaluative comparisons in predictive analytics tasks, although allowing for tasks in other research areas such as topic detection and tracking, sentiment analysis in short text, first story detection or news recommendation.
+[News Popularity in Multiple Social Media Platforms Data Set](https://archive.ics.uci.edu/ml/datasets/News+Popularity+in+Multiple+Social+Media+Platforms) - 13 CSV files, 155MB in total  
+
+This dataset contains a large set of news items and their respective social feedback on Facebook, Google + and LinkedIn.
 
 ### Task
 4 subtasks:
-+ (20pt) In news data, calculate the sum and average sentiment score of each topic, respectively
 + (20pt) In social feedback data, calculate the average popularity of each news by hour, and by day, respectively
++ (20pt) In news data, calculate the sum and average sentiment score of each topic, respectively
 + (30pt) In news data, count the words in two fields: ‘Title’ and ‘Headline’ respectively, and list the most frequent words according to the term frequency in descending order, in total, per day, and per topic, respectively
 + (30pt) From the previous subtask, for the top-100 frequent words per topic in titles and headlines, calculate their co-occurrence matrices (100x100), respectively. Each entry in the matrix will contain the co-occurrence frequency in all news titles and headlines, respectively
 
