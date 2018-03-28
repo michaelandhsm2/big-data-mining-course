@@ -2,12 +2,12 @@ import org.apache.spark.sql.SparkSession
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkConf
 
-import java.io.File
+import java.io.{File,PrintWriter}
 
 object HW1 {
   def main(args: Array[String]): Unit = {
-    if (args.length < 2) {
-      System.err.println("Usage: HW1 <inputFile> <outputFile>")
+    if (args.length < 3) {
+      System.err.println("Usage: HW1 <inputFile> <outputFile> <outputLog>")
       System.exit(1)
     }
 
@@ -17,15 +17,6 @@ object HW1 {
       .getOrCreate()
 
     import spark.implicits._
-
-    def sparkPrint():Unit = {
-      println("Spark Entity:       " + spark)
-      println("Spark version:      " + spark.version)
-      println("Spark master:       " + spark.sparkContext.master)
-      println("Running 'locally'?: " + spark.sparkContext.isLocal)
-      println("\n")
-    }
-    sparkPrint()
 
     // Load File
     val data = spark.sparkContext.textFile(args(0))
@@ -76,24 +67,33 @@ object HW1 {
     dataDF.createOrReplaceTempView("records")
 
     //Output Result
+    val writer = new PrintWriter(args(2))
+    writer.println("Spark Entity:       " + spark)
+    writer.println("Spark version:      " + spark.version)
+    writer.println("Spark master:       " + spark.sparkContext.master)
+    writer.println("Running 'locally'?: " + spark.sparkContext.isLocal)
+    writer.println("")
+
     def myprint(s: String): Unit = {
-        println("For "+s+":")
-        println("        Number of Meaningful Data - " + count.value(s))
-        println("        Maximum Value - " + max.value(s))
-        println("        Minimum Value - " + min.value(s))
-        println("        Mean - " + average.value(s))
-        println("        Standard Deviation - " + std(s) + "\n")
+        writer.println("For "+s+":")
+        writer.println("        Number of Meaningful Data - " + count.value(s))
+        writer.println("        Maximum Value - " + max.value(s))
+        writer.println("        Minimum Value - " + min.value(s))
+        writer.println("        Mean - " + average.value(s))
+        writer.println("        Standard Deviation - " + std(s) + "\n")
     }
-    sparkPrint()
+
 
     myprint(hArray(2))
     myprint(hArray(3))
     myprint(hArray(4))
     myprint(hArray(5))
-    println("\nNormalized Output (Selected Examples)\n")
+    writer.println("Normalize Output Examples printed on Console View.")
+
+    println("\n\nNormalized Output (Selected Examples)\n")
     spark.sql("SELECT * FROM records WHERE date = '28/4/2007'").show(25)
 
     spark.stop()
-
+    writer.close()
   }
 }
