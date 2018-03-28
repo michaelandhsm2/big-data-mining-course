@@ -1,4 +1,5 @@
 import org.apache.spark.sql.SparkSession
+import java.io.{File,PrintWriter}
 
 object SimpleApp {
   def main(args: Array[String]) {
@@ -9,5 +10,14 @@ object SimpleApp {
     val numBs = logData.filter(line => line.contains("b")).count()
     println(s"Lines with a: $numAs, Lines with b: $numBs")
     spark.stop()
+  }
+}
+
+object Task{
+  def main(args: Array[String]){
+    val writer = new PrintWriter(new File("test.txt"))
+    writer.println("Hi")
+    Console.println("hi")
+    writer.close()
   }
 }
