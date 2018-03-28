@@ -1,4 +1,4 @@
-# Homework 1
+# Homework 1 - Normalization of Power Consumption Dataset
 
 ## Description
 
@@ -25,7 +25,7 @@ Scala 2.11.8 + Spark 2.3.0
 + Third Iteration ([Google Dataproc](https://cloud.google.com/dataproc/))
   - 1 Master Node + 3 Worker Node
   - Machine Type: n1-standard-1 (1vCPU, 3.75GB Memory, 10GB Disk)
-![Cluster Setup Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw1/pics/Cluster_Setup.PNG)
+![Cluster Setup Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw1/pics/Setup.PNG)
 
 ### Output
 - Output File ([Google Drive Download Link](https://drive.google.com/file/d/1Tow0I7p9pmR5fQ41nOS95xFFPLFDQEbX/view?usp=sharing))

@@ -1,4 +1,4 @@
-# Big Data
+# Big Data Mining
 
 This is a repository for the Big Data Mining Course in National Taipei University of Technology (NTUT). The repository contains practice files and homework submissions, along with the implementation of the term project.
 
@@ -6,7 +6,7 @@ This is a repository for the Big Data Mining Course in National Taipei Universit
 
 ### Code Demo
 
-* [Homework 1 - Normalization of Individual Household Electric Power Consumption Dataset](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw1/HW%20%231.ipynb)
+* [Homework 1 - Normalization of Power Consumption Dataset](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw1/HW%20%231.ipynb)
 
 ## Built With
 
