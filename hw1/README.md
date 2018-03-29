@@ -28,9 +28,9 @@ Scala 2.11.8 + Spark 2.3.0
 ![Cluster Setup Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw1/pics/Setup.PNG)
 
 ### Output
-- Output File ([Google Drive Download Link](https://drive.google.com/file/d/1Tow0I7p9pmR5fQ41nOS95xFFPLFDQEbX/view?usp=sharing))
+- Output File ([Google Drive Download Link](https://drive.google.com/file/d/1Gb3xsUtELEeuRAxBTpHqxdSqaZqEduMr/view?usp=sharing))
 
-- Console Output 1
+- Console Output 1 ([Output Text](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw1/consoleLog.txt))
 
 ![Console Output 1 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw1/pics/Results_1.PNG)
 
