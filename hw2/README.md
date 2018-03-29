@@ -1,4 +1,4 @@
-# Homework 2
+# Homework 2 - Analysis of News Popularity
 
 ## Description
 
@@ -21,11 +21,11 @@ Scala 2.11.8 + Spark 2.3.0
 
 + First Iteration (Local) - Jupyter Notebook + Apache Toree ([Code Demo](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw1/HW%20%232.ipynb))
 + Second Iteration (Local) - Plain Scala ([Code](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw1/sbt/src/main/scala/hw2.scala))
-+ Third Iteration ([Google Dataproc](https://cloud.google.com/dataproc/))
++ Third Iteration (GCP VM) - ([Execution Jar](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw1/sbt/hw1.jar))
   - 1 Master Node + 3 Worker Node
   - Machine Type: n1-standard-1 (1vCPU, 3.75GB Memory, 10GB Disk)
 
-  
+
 ![Cluster Setup Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw1/pics/Cluster%20Setup.PNG)
 ### Output
 - Output File ([Google Drive Download Link](https://drive.google.com/file/d/1Tow0I7p9pmR5fQ41nOS95xFFPLFDQEbX/view?usp=sharing))
