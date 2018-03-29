@@ -1,26 +1,20 @@
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.SparkContext
-import org.apache.spark.SparkConf
+import org.apache.spark.{SparkContext,SparkConf}
+import org.apache.hadoop.fs._
+import org.apache.hadoop.conf.Configuration
 
 import java.io.{File,PrintWriter}
 
 object HW1 {
   def main(args: Array[String]): Unit = {
-    if (args.length < 3) {
-      System.err.println("Usage: HW1 <inputFile> <outputFile> <outputLog>")
-      System.exit(1)
-    }
 
-    val spark = SparkSession
-      .builder
-      .appName("HW1")
-      .getOrCreate()
+    Common.checkArgs(args, 3, "<inputFile(.txt)> <outputFile(dir)> <outputLog(.txt)>")
 
+    val spark = SparkSession.builder.appName("HW1").getOrCreate()
     import spark.implicits._
 
     // Load File
     val data = spark.sparkContext.textFile(args(0))
-
 
     // Remove Header
     val header = data.first
@@ -67,12 +61,8 @@ object HW1 {
     dataDF.createOrReplaceTempView("records")
 
     //Output Result
-    val writer = new PrintWriter(args(2))
-    writer.println("Spark Entity:       " + spark)
-    writer.println("Spark version:      " + spark.version)
-    writer.println("Spark master:       " + spark.sparkContext.master)
-    writer.println("Running 'locally'?: " + spark.sparkContext.isLocal)
-    writer.println("")
+    val writer = Common.outputWriter(args(2))
+    Common.printSpark(writer, spark)
 
     def myprint(s: String): Unit = {
         writer.println("For "+s+":")
@@ -82,7 +72,6 @@ object HW1 {
         writer.println("        Mean - " + average.value(s))
         writer.println("        Standard Deviation - " + std(s) + "\n")
     }
-
 
     myprint(hArray(2))
     myprint(hArray(3))
@@ -95,5 +84,36 @@ object HW1 {
 
     spark.stop()
     writer.close()
+  }
+}
+
+object Common{
+  def getFile(fileString: String): Array[String] ={
+    val inputPath = new Path(fileString)
+    val inputBuffer = scala.collection.mutable.ArrayBuffer.empty[String]
+    val iterator = inputPath.getFileSystem(new Configuration()).listFiles(inputPath, false)
+    while(iterator.hasNext()){
+        val fileStatus = iterator.next()
+        if(fileStatus.isFile()){
+          inputBuffer += fileStatus.getPath().toString()
+        }
+    }
+    inputBuffer.toArray
+  }
+
+  def checkArgs(args: Array[String], requiredArgs: Int, style: String): Unit = {
+    if (args.length < requiredArgs) {
+      System.err.println(s"\nThis program expects $requiredArgs arguments.")
+      System.err.println(s"Usage: -- $style\n")
+      System.exit(1)
+    }
+  }
+
+  def printSpark(writer: PrintWriter, spark: SparkSession): Unit = {
+    writer.println("Spark Entity:       " + spark)
+    writer.println("Spark version:      " + spark.version)
+    writer.println("Spark master:       " + spark.sparkContext.master)
+    writer.println("Running 'locally'?: " + spark.sparkContext.isLocal)
+    writer.println("")
   }
 }

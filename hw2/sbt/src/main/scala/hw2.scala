@@ -1,29 +1,23 @@
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkConf
+import org.apache.hadoop.fs._
+import org.apache.hadoop.conf.Configuration
 
 import java.io.{File,PrintWriter}
 
 object Task1 {
   def main(args: Array[String]): Unit = {
 
-    Common.checkArgs(args, 3, "HW2 <inputFile(dir or file)> <outputFile(dir)> <outputLog(.txt)>")
+    Common.checkArgs(args, 3, "<inputFile(dir or file)> <outputFile(dir)> <outputLog(.txt)>")
+    val inputList = Common.getFile(args(0))
 
     val spark = SparkSession.builder.appName("HW2").getOrCreate()
-
-    //Get Input Data - Dir or File
-    val inputFile = new File(args(0))
-    var inputList = List[File]()
-    if(inputFile.isDirectory){
-        inputList = inputFile.listFiles.filter(_.isFile).toList
-    }else if(inputFile.isFile){
-        inputList = List[File](inputFile)
-    }
+    var flattenSocialData = spark.sparkContext.emptyRDD[((String, Int), (Double, Int))]
 
     //Create Initial Tuple
-    var flattenSocialData = spark.sparkContext.emptyRDD[((String, Int), (Double, Int))]
     inputList.foreach{ input =>
-        val data = spark.sparkContext.textFile(input.toString)
+        val data = spark.sparkContext.textFile(input)
         val header = data.first
         val flattenData = data.filter(l => l != header).
         flatMap{ dataString =>
@@ -58,16 +52,16 @@ object Task1 {
     all_tuple.saveAsTextFile(args(1))
 
     //Output Result
-    val writer = new PrintWriter(args(2))
+    val writer = Common.outputWriter(args(2))
     Common.printSpark(writer, spark)
+
     writer.println("Loaded Files:")
     inputList.foreach(writer.println)
-    println("")
+    writer.println("")
 
     def printSample(data:Any, title:String, format:String){
       writer.println(title+" Data Sample: " + format)
-      writer.print(data)
-      writer.println(format+"\n")
+      writer.println(data+"\n")
     }
 
     printSample(flattenSocialData.first(), "Loaded", "((UID, Hour), (Popularity, Count))")
@@ -82,7 +76,6 @@ object Task1 {
 
     spark.stop()
     writer.close()
-
   }
 }
 
@@ -94,10 +87,29 @@ object Task2 {
 }
 
 object Common{
+  def getFile(fileString: String): Array[String] ={
+    val inputPath = new Path(fileString)
+    val inputBuffer = scala.collection.mutable.ArrayBuffer.empty[String]
+    val iterator = inputPath.getFileSystem(new Configuration()).listFiles(inputPath, false)
+    while(iterator.hasNext()){
+        val fileStatus = iterator.next()
+        if(fileStatus.isFile()){
+          inputBuffer += fileStatus.getPath().toString()
+        }
+    }
+    inputBuffer.toArray
+  }
+
+  def outputWriter(fileString: String): PrintWriter ={
+    val outputPath = new Path(fileString)
+    val outputStream = outputPath.getFileSystem(new Configuration()).create(outputPath);
+    new PrintWriter(outputStream)
+  }
+
   def checkArgs(args: Array[String], requiredArgs: Int, style: String): Unit = {
     if (args.length < requiredArgs) {
       System.err.println(s"\nThis program expects $requiredArgs arguments.")
-      System.err.println(s"Usage: $style\n")
+      System.err.println(s"Usage: -- $style\n")
       System.exit(1)
     }
   }

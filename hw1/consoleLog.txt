@@ -1,0 +1,34 @@
+Spark Entity:       org.apache.spark.sql.SparkSession@4202276
+Spark version:      2.2.0
+Spark master:       yarn
+Running 'locally'?: false
+
+For Active_Power:
+        Number of Meaningful Data - 2049280
+        Maximum Value - 11.122
+        Minimum Value - 0.076
+        Mean - 1.0916150365007313
+        Standard Deviation - 1.0572939031266517
+
+For Reactive_Power:
+        Number of Meaningful Data - 2049280
+        Maximum Value - 1.39
+        Minimum Value - 0.0
+        Mean - 0.12371447630388727
+        Standard Deviation - 0.11272195204774406
+
+For Voltage:
+        Number of Meaningful Data - 2049280
+        Maximum Value - 254.15
+        Minimum Value - 223.2
+        Mean - 240.83985797455423
+        Standard Deviation - 3.2399858884913204
+
+For Intensity:
+        Number of Meaningful Data - 2049280
+        Maximum Value - 48.4
+        Minimum Value - 0.2
+        Mean - 4.627759310588489
+        Standard Deviation - 4.444395175415986
+
+Normalize Output Examples printed on Console View.
