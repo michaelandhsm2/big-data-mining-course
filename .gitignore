@@ -4,6 +4,7 @@ output/
 spark-warehouse/
 !**/hw_boilerplate/data
 !**/hw_boilerplate/output
+metastore_db/
 
 *.ipynb_checkpoints
 
