@@ -4,9 +4,10 @@ This is a repository for the Big Data Mining Course in National Taipei Universit
 
 ## Contents
 
-### Code Demo
 
-* [Homework 1 - Normalization of Power Consumption Dataset](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw1/HW%20%231.ipynb)
+* [Homework 1 - Normalization of Power Consumption Dataset](https://github.com/michaelandhsm2/big-data-mining-course/tree/master/hw1) ([Demo](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw1/HW%20%231.ipynb))
+* [Homework 2 - News Popularity in Social Media Platforms](https://github.com/michaelandhsm2/big-data-mining-course/tree/master/hw2) ([Demo](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw2/HW%20%232.ipynb))
+
 
 ## Built With
 

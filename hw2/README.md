@@ -34,12 +34,12 @@ Scala 2.11.8 + Spark 2.3.0
 
 - Console Output for Task 1 ([Console Output Text](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw2/consoleLog_task1.txt))
 
-![Console Output 1 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw2/pics/Results%20-%201.PNG)
+![Console Output 1 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw2/pics/Results_1.png)
 
 - Console Output for Task 2 ([Console Output Text](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw2/consoleLog_task2.txt))
 
-![Console Output 2 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw2/pics/Results%20-%202.PNG)
+![Console Output 2 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw2/pics/Results_2.png)
 
 - Console Output for Task 3 & 4 ([Console Output Text](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw2/consoleLog_task3_4.txt), [Console Display Text](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw2/task3_4_output.txt))
 
-![Console Output 3 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw2/pics/Results%20-%203.PNG)
+![Console Output 3 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw2/pics/Results_3.png)
