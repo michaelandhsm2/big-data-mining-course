@@ -1,0 +1,44 @@
+Spark Entity:       org.apache.spark.sql.SparkSession@2bcb1414
+Spark version:      2.2.1
+Spark master:       yarn
+Running 'locally'?: false
+
+Parse Data Sample: 
+List(99248, Obama Lays Wreath at Arlington National Cemetery, Obama Lays Wreath at Arlington National Cemetery. President Barack Obama has laid a wreath at the Tomb of the Unknowns to honor, USA TODAY, obama, 2002-04-02 00:00:00, 0, -0.0533001790889026, -1, -1, -1)
+
+Flatten Sentient Score Data Sample: (Topic, (Title Sentient Score, Headline Sentient Score, Count))
+(obama,(0.0,-0.0533001790889026,1))
+
+Reduced Sentient Score Data Sample: (Topic, (Title Sentient Score, Headline Sentient Score, Count))
+(economy,(-350.9976089181219,-1210.0383335346592,33928))
+
+For economy (33928 entries): 
+        Sum of Title Sentient Score: -350.9976089181219
+        Sum of Headline Sentient Score: -1210.0383335346592
+        Average of Title Sentient Score: -0.010345366921661221
+        Average of Headline Sentient Score: -0.03566488839703664
+
+For obama (28609 entries): 
+        Sum of Title Sentient Score: -27.97430750120286
+        Sum of Headline Sentient Score: -226.26934001124715
+        Average of Title Sentient Score: -9.778149359013896E-4
+        Average of Headline Sentient Score: -0.007909026530506034
+
+For microsoft (21858 entries): 
+        Sum of Title Sentient Score: 51.51784442378511
+        Sum of Headline Sentient Score: -229.2340122950419
+        Average of Title Sentient Score: 0.002356933133122203
+        Average of Headline Sentient Score: -0.01048741935653042
+
+For 2016-06-06 01:15:31 (1 entries): 
+        Sum of Title Sentient Score: -0.17860862707794
+        Sum of Headline Sentient Score: 3.0
+        Average of Title Sentient Score: -0.17860862707794
+        Average of Headline Sentient Score: 3.0
+
+For palestine (8843 entries): 
+        Sum of Title Sentient Score: -177.61514431068508
+        Sum of Headline Sentient Score: -393.38238008336054
+        Average of Title Sentient Score: -0.020085394584494525
+        Average of Headline Sentient Score: -0.04448517246221424
+
