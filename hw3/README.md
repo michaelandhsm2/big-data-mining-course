@@ -51,14 +51,17 @@ Scala 2.11.8 + Spark 2.3.0
 ![Cluster Setup Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw3/pics/Setup.png)
 
 ### Output
-- Output File ([Google Drive Download Link](https://drive.google.com/file/d/1oIpQogkyDba7jlG7tm-cfuejQiTT-XPD/view?usp=sharing)), including:
+- Output File RAR ([Google Drive Download Link](https://drive.google.com/file/d/1oIpQogkyDba7jlG7tm-cfuejQiTT-XPD/view?usp=sharing)), including:
   - Hash Function Matrix from Task 2 (For future hashing)
   - Signature Matrix from Task 2
   - LSH_Pairs from Task 3
 
-- Shingle Matrix for Task 1 ([README.txt](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw3/shingleMatrix.md))
-  - Not Included in previous file due to its size.
+- Shingle Matrix for Task 1 ([README](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw3/shingleMatrix.md))
+
+- Result for Bonus Question<br>
+![Bonus Result Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw3/pics/Results_5.png)
+  - Only implemented on [Jupyter Notebook](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw3/HW%20%233.ipynb)
+  - Only used 'reut2-017.sgm' as news source. The new source contains 960 news articles, which is 5% of the total articles.
 
 - Console Output for Tasks ([Console Output Text](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw3/consoleLog.txt))
-
 ![Console Output 1 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw3/pics/Results_4.png)
