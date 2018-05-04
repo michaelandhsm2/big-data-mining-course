@@ -3,35 +3,62 @@
 ## Description
 
 ### Data
-[Individual household electric power consumption dataset](https://archive.ics.uci.edu/ml/datasets/individual+household+electric+power+consumption) - about 2 million instances, 20MB (compressed) in size
+[Reuters-21578 Text Categorization Collection Data Set](https://archive.ics.uci.edu/ml/datasets/reuters-21578+text+categorization+collection) - about 2 million instances, 28MB in size
+
+
+News: 21 SGML files
+We only deal with news contents inside &lt;body> ... &lt;/body> tags
+
 
 ### Task
-3 subtasks:
-+ (30pt) Output the minimum, maximum, and count of the columns: ‘global active power’, ‘global reactive power’, ‘voltage’, and ‘global intensity’
-+ (30pt) Output the mean and standard deviation of these columns
-+ (40pt) Perform min-max normalization on the columns to generate normalized output
+4 subtasks:
++ (30pt) Given the Reuters-21578 dataset, please calculate all k-shingles and output the set representation of the text dataset as a matrix.
++ (30pt) Given the set representation, compute the minhash signatures of all documents using MapReduce.
++ (40pt) Implement the LSH algorithm by MapReduce and output the resulting candidate pairs of similar documents.
 
-### Implementation Issues
-+ Missing values
-+ Conversion of data types
+### Output Format
+
+1. Set representation:
+A MxN matrix: with rows as shingles and columns as documents (N=21,578)
+2. minhash signatures:
+The HxN signature matrix: with H as the number of hash functions, N=21,578
+3. candidate pairs:
+For each document i, there should be a list of those documents j>i with which i needs to be compared
+4. comparison of KNN search an linear search
+
+
+### Implementation Notes
+
+Note the differences in rows and columns for the input data and the output matrices
+* Input: rows as documents
+* Output: columns as documents
+
+The program should be able to accept some parameters:
+* k in k-shingles
+* Number of hash functions H
+
 
 ## Results
 
 ### Implementation Stack
 Scala 2.11.8 + Spark 2.3.0
 
-+ First Iteration (Local) - Jupyter Notebook + Apache Toree ([Code Demo](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw1/HW%20%231.ipynb))
-+ Second Iteration (Local) - Plain Scala ([Code](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw1/sbt/src/main/scala/hw1.scala))
++ First Iteration (Local) - Jupyter Notebook + Apache Toree ([Code Demo](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw3/HW%20%233.ipynb))
++ Second Iteration (Local) - Plain Scala ([Code](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw3/sbt/src/main/scala/hw3.scala))
 + Third Iteration ([Google Dataproc](https://cloud.google.com/dataproc/))
-  - 1 Master Node + 3 Worker Node
-  - Machine Type: n1-standard-1 (1vCPU, 3.75GB Memory, 10GB Disk)
-![Cluster Setup Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw1/pics/Cluster_Setup.PNG)
+  - 1 Master Node + 4 Worker Node
+  - Machine Type: n1-highmem-4 (4vCPU, 26GB Memory, 50GB Disk)
+![Cluster Setup Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw3/pics/Setup.png)
 
 ### Output
-- Output File ([Google Drive Download Link](https://drive.google.com/file/d/1xTLz6hsYr96O0JV0eOBXtGXT3J5qT1mM/view?usp=sharing)), including:
-  - 48 Segmented Files from Task 1 (Average Popularity)
-  - 580 Files from Task 3 & 4 (Word Count & Co-occurance)
+- Output File ([Google Drive Download Link](https://drive.google.com/file/d/1oIpQogkyDba7jlG7tm-cfuejQiTT-XPD/view?usp=sharing)), including:
+  - Hash Function Matrix from Task 2 (For future hashing)
+  - Signature Matrix from Task 2
+  - LSH_Pairs from Task 3
 
-- Console Output for Task 1 ([Console Output Text](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw2/consoleLog_task1.txt))
+- Shingle Matrix for Task 1 ([README.txt](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw3/shingleMatrix.md))
+  - Not Included in previous file due to its size.
 
-![Console Output 1 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw2/pics/Results_1.png)
+- Console Output for Tasks ([Console Output Text](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw3/consoleLog.txt))
+
+![Console Output 1 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw3/pics/Results_4.png)

@@ -1,6 +1,8 @@
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkConf
+import org.apache.hadoop.fs._
+import org.apache.hadoop.conf.Configuration
 
 import java.io.{File,PrintWriter}
 
@@ -12,7 +14,7 @@ object Task1 {
     val spark = SparkSession.builder.appName("HW2").getOrCreate()
 
     //Output Result
-    val writer = new PrintWriter(args(2))
+    val writer =  Common.outputWriter(args(2))
     Common.printSpark(writer, spark)
 
     spark.stop()
