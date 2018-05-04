@@ -15,7 +15,6 @@ We only deal with news contents inside &lt;body> ... &lt;/body> tags
 + (30pt) Given the Reuters-21578 dataset, please calculate all k-shingles and output the set representation of the text dataset as a matrix.
 + (30pt) Given the set representation, compute the minhash signatures of all documents using MapReduce.
 + (40pt) Implement the LSH algorithm by MapReduce and output the resulting candidate pairs of similar documents.
-+ (Bonus) Implement K-nearest neighbor (KNN) search using LSH and compare its performance with linear search.
 
 ### Output Format
 
@@ -49,7 +48,7 @@ Scala 2.11.8 + Spark 2.3.0
 + Third Iteration ([Google Dataproc](https://cloud.google.com/dataproc/))
   - 1 Master Node + 4 Worker Node
   - Machine Type: n1-highmem-4 (4vCPU, 26GB Memory, 50GB Disk)
-![Cluster Setup Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw3/pics/Setup.PNG)
+![Cluster Setup Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw3/pics/Setup.png)
 
 ### Output
 - Output File ([Google Drive Download Link](https://drive.google.com/file/d/1oIpQogkyDba7jlG7tm-cfuejQiTT-XPD/view?usp=sharing)), including:
@@ -57,7 +56,7 @@ Scala 2.11.8 + Spark 2.3.0
   - Signature Matrix from Task 2
   - LSH_Pairs from Task 3
 
-- Shingle Matrix for Task 1 ([README.txt](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw3/shingleMatrix.md))
+- Shingle Matrix for Task 1 ([README.txt](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw3/shingleMatrix.md))
   - Not Included in previous file due to its size.
 
 - Console Output for Tasks ([Console Output Text](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw3/consoleLog.txt))
