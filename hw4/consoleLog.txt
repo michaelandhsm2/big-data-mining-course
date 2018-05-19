@@ -1,0 +1,108 @@
+Spark Entity:       org.apache.spark.sql.SparkSession@54c26cf9
+Spark version:      2.2.1
+Spark master:       yarn
+Running 'locally'?: false
+
+
+Count: 19043
+
+Parsed Sample Data Sample: 
+(1,Showers continued throughout the week in
+the Bahia cocoa zone, alleviating the drought since early
+January and improving prospects for the coming temporao,
+although normal humidity levels have not been restored,
+Comissaria Smith said in its weekly review.
+    The dry period means the temporao will be late this year.
+    Arrivals for the week ended February 22 were 155,221 bags
+of 60 kilos making a cumulative total for the season of 5.93
+mln against 5.81 at the same stage last year. Again it seems
+that cocoa delivered earlier on consignment was included in the
+arrivals figures.
+    Comissaria Smith said there is still some doubt as to how
+much old crop cocoa is still available as harvesting has
+practically come to an end. With total Bahia crop estimates
+around 6.4 mln bags and sales standing at almost 6.2 mln there
+are a few hundred thousand bags still in the hands of farmers,
+middlemen, exporters and processors.
+    There are doubts as to how much of this cocoa would be fit
+for export as shippers are now experiencing dificulties in
+obtaining +Bahia superior+ certificates.
+    In view of the lower quality over recent weeks farmers have
+sold a good part of their cocoa held on consignment.
+    Comissaria Smith said spot bean prices rose to 340 to 350
+cruzados per arroba of 15 kilos.
+    Bean shippers were reluctant to offer nearby shipment and
+only limited sales were booked for March shipment at 1,750 to
+1,780 dlrs per tonne to ports to be named.
+    New crop sales were also light and all to open ports with
+June/July going at 1,850 and 1,880 dlrs and at 35 and 45 dlrs
+under New York july, Aug/Sept at 1,870, 1,875 and 1,880 dlrs
+per tonne FOB.
+    Routine sales of butter were made. March/April sold at
+4,340, 4,345 and 4,350 dlrs.
+    April/May butter went at 2.27 times New York May, June/July
+at 4,400 and 4,415 dlrs, Aug/Sept at 4,351 to 4,450 dlrs and at
+2.27 and 2.28 times New York Sept and Oct/Dec at 4,480 dlrs and
+2.27 times New York Dec, Comissaria Smith said.
+    Destinations were the U.S., Covertible currency areas,
+Uruguay and open ports.
+    Cake sales were registered at 785 to 995 dlrs for
+March/April, 785 dlrs for May, 753 dlrs for Aug and 0.39 times
+New York Dec for Oct/Dec.
+    Buyers were the U.S., Argentina, Uruguay and convertible
+currency areas.
+    Liquor sales were limited with March/April selling at 2,325
+and 2,380 dlrs, June/July at 2,375 dlrs and at 1.25 times New
+York July, Aug/Sept at 2,400 dlrs and at 1.25 times New York
+Sept and Oct/Dec at 1.25 times New York Dec, Comissaria Smith
+said.
+    Total Bahia sales are currently estimated at 6.13 mln bags
+against the 1986/87 crop and 1.06 mln bags against the 1987/88
+crop.
+    Final figures for the period to February 28 are expected to
+be published by the Brazilian Cocoa Trade Commission after
+carnival which ends midday on February 27.)
+
+(2,Standard Oil Co and BP North America
+Inc said they plan to form a venture to manage the money market
+borrowing and investment activities of both companies.
+    BP North America is a subsidiary of British Petroleum Co
+Plc &lt;BP>, which also owns a 55 pct interest in Standard Oil.
+    The venture will be called BP/Standard Financial Trading
+and will be operated by Standard Oil under the oversight of a
+joint management committee.
+)
+
+Ziped With Index Sample Data Sample: 
+12886 -> 11785
+6220 -> 5711
+6938 -> 6374
+3672 -> 3377
+12572 -> 11484
+
+Parsed Shingle Sample Data Sample: 
+(2,600,000,CompactBuffer((2798,1), (8989,1), (8228,1), (18615,1), (5499,1), (2092,1), (5663,1), (16636,1)))
+(kan'an,CompactBuffer((5129,4)))
+(fotation,CompactBuffer((15193,1)))
+(180,047,CompactBuffer((11650,1)))
+(shaping,CompactBuffer((13584,1), (15917,1), (15489,1), (15622,1)))
+(1,232,000,CompactBuffer((421,1)))
+(mccall,CompactBuffer((152,2), (151,1)))
+(envelope,CompactBuffer((9715,1)))
+(inzi,CompactBuffer((13118,1)))
+(conferenced,CompactBuffer((18576,1)))
+(nutrasweet,CompactBuffer((16739,1), (18816,7)))
+(conclusively,CompactBuffer((5062,1)))
+(companmy,CompactBuffer((8456,1)))
+(preventing,CompactBuffer((9158,1), (8428,1), (18608,1), (14695,1), (3083,1), (5362,1), (8652,1), (14986,1), (1885,1), (10196,1), (4943,1), (7414,1), (10164,1), (15930,1), (4392,1), (14112,1), (15445,1), (18586,1), (11531,1), (11668,1), (7195,1), (4537,1), (7747,1), (946,1), (52,1), (15552,1), (4354,1), (18979,1), (29,1), (14823,1), (7981,1), (6889,1), (2898,1), (4801,1), (10180,1), (5224,1), (8354,1), (858,1), (7395,1), (7507,1), (15479,1), (11724,1), (13076,1), (17384,1), (17512,1), (14460,1), (13637,1)))
+(merge,CompactBuffer((13454,1), (669,1), (6140,1), (18796,1), (10782,1), (1838,1), (10856,1), (7971,1), (17019,1), (5047,1), (4775,1), (13378,1), (262,1), (8422,1), (8233,1), (16833,1), (15889,1), (6757,1), (12632,1), (1701,1), (2305,1), (14308,1), (14497,1), (9334,1), (14517,1), (8916,2), (17650,1), (17322,1), (6472,1), (12882,1), (8035,1), (7717,1), (6893,1), (5611,1), (6597,1), (16114,1), (9280,1), (11339,1), (12969,1), (17782,1), (2328,1), (9115,1), (15983,1), (5066,1), (9037,1), (6112,1), (13297,1), (14328,1), (6777,1), (15572,1), (15301,1), (14496,1), (1724,1), (11728,2), (13709,1), (6994,1), (17656,1), (7040,1), (5149,1), (10754,1), (12681,1), (710,1), (2835,1), (787,1), (693,1), (9075,1), (6263,1), (10237,1), (14808,2), (13382,1), (11943,1), (17361,1), (8984,1), (17575,1), (4657,1), (10677,1), (18323,1), (13117,1), (18489,1), (2825,1), (17079,1), (9196,1), (7117,1), (1922,1), (709,1), (14369,1), (6649,1), (19019,1), (8151,1), (13189,1), (2068,1), (4863,1)))
+(taxpayer,CompactBuffer((6514,1), (10960,1), (8633,1), (16467,1), (6562,1), (3153,1)))
+(comoros,CompactBuffer((17153,1), (9702,1)))
+(59,648,CompactBuffer((16284,1)))
+(poclain's,CompactBuffer((4793,1)))
+(gap,CompactBuffer((4074,1), (18063,1), (3754,1), (16523,1), (14616,1), (9842,1), (5382,1), (8928,1), (10187,1), (8915,1), (8880,1), (2406,1), (14637,1), (12212,1), (8934,1), (10708,1), (14982,1), (2350,1), (1727,2), (9672,1), (6375,1), (16238,2), (7547,1), (13868,1), (1938,1), (6997,2), (7576,1), (829,3), (12724,1), (6926,1), (7448,1), (17673,1), (15167,1), (16033,1), (18988,1), (10125,1), (328,4), (14266,1), (15417,1), (1560,1), (11037,1), (12875,1), (3003,1), (6547,4), (12946,1), (14172,1), (16427,1), (7321,1), (14252,1), (17388,1), (17088,1), (7432,1), (16491,2), (13710,1), (14164,1), (7000,1), (11697,1), (11711,1), (1213,1), (7519,1), (899,1), (1305,1), (17762,2), (15404,1), (11547,1), (2532,1), (6912,1), (5069,1), (10486,1), (6639,1), (5873,2), (16573,1), (6892,3), (9387,3), (15894,1), (6704,1), (256,1), (8999,1), (3691,2), (12609,1), (17442,1), (4785,1), (14297,1), (7208,1), (4708,1), (6911,2), (15877,1), (10126,1), (5295,1), (10508,1)))
+
+New Matrix Sample Data Sample: 
+2248, 1513, 603
+856, -2432, -2824
+
