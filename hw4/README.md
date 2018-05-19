@@ -59,4 +59,3 @@ Scala 2.11.8 + Spark 2.3.0
 
 - Console Output for Tasks ([Console Output Text](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw4/consoleLog.txt))
 ![Console Output 1 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw4/pics/Results_1.png)
-![Console Output 2 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw4/pics/Results_2.png)
