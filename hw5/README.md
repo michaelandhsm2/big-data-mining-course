@@ -39,11 +39,11 @@ Scala 2.11.8 + Spark 2.3.0
 + Third Iteration ([Google Dataproc](https://cloud.google.com/dataproc/))
   - 1 Master Node + 3 Worker Node
   - Machine Type: n1-standard-1 (1vCPU, 3.75GB Memory, 10GB Disk)
-![Cluster Setup Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw5/pics/Setup.PNG)
+![Cluster Setup Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw5/pics/Setup.png)
 
 ### Output
 - Output File ([Google Drive Download Link](https://drive.google.com/file/d/1mUP5Ii8wMy2Vk0Ihkd1uK-tJjDm-IKXi/view?usp=sharing))
 
 - Console Output for Task ([Console Output Text](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw5/consoleLog.txt))
 
-![Console Output 1 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw5/pics/Results_1.png)
+![Console Output 1 Picture](https://raw.githubusercontent.com/michaelandhsm2/big-data-mining-course/master/hw5/pics/Results_1.PNG)

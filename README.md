@@ -9,6 +9,8 @@ This is a repository for the Big Data Mining Course in National Taipei Universit
 * [Homework 2 - News Popularity in Social Media Platforms](https://github.com/michaelandhsm2/big-data-mining-course/tree/master/hw2) ([Demo](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw2/HW%20%232.ipynb))
 * [Homework 3 - Reuters-21578 Finding Similar Texts](https://github.com/michaelandhsm2/big-data-mining-course/tree/master/hw3) ([Demo](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw3/HW%20%233.ipynb))
 * [Homework 4 - Reuters-21578 Matrix Multiplication and Decomposition](https://github.com/michaelandhsm2/big-data-mining-course/tree/master/hw4) ([Demo](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw4/HW%20%234.ipynb))
+* [Homework 5 - Google Web Graph Connectivity](https://github.com/michaelandhsm2/big-data-mining-course/tree/master/hw5) ([Demo](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw5/HW%20%235.ipynb))
+* [Bonus - Chicago Crime Data Analysis](https://github.com/michaelandhsm2/big-data-mining-course/tree/master/bonus) ([Demo](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/bonus/Bonus.ipynb))
 
 
 ## Built With
