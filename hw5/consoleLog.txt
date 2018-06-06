@@ -1,0 +1,6 @@
+Spark Entity:       org.apache.spark.sql.SparkSession@6475e778
+Spark version:      2.2.1
+Spark master:       yarn
+Running 'locally'?: false
+
+Count: 5105039
