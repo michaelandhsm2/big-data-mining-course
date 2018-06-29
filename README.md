@@ -11,6 +11,7 @@ This is a repository for the Big Data Mining Course in National Taipei Universit
 * [Homework 4 - Reuters-21578 Matrix Multiplication and Decomposition](https://github.com/michaelandhsm2/big-data-mining-course/tree/master/hw4) ([Demo](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw4/HW%20%234.ipynb))
 * [Homework 5 - Google Web Graph Connectivity](https://github.com/michaelandhsm2/big-data-mining-course/tree/master/hw5) ([Demo](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/hw5/HW%20%235.ipynb))
 * [Bonus - Chicago Crime Data Analysis](https://github.com/michaelandhsm2/big-data-mining-course/tree/master/bonus) ([Demo](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/bonus/Bonus.ipynb))
+* [Term Project - Automatic Text Summarization](https://github.com/michaelandhsm2/big-data-mining-course/tree/master/term_project) ([Demo](https://github.com/michaelandhsm2/big-data-mining-course/blob/master/term_project/Term_Project%20-%20Freq%20Count.ipynb), [Presentation](https://docs.google.com/presentation/d/e/2PACX-1vRRxPujyVdFrk7DbcXBQ68kIDvJZSxJefiiaeQ42JLN0nIPkxZvNOmHBVvIAeCo7dofOUrrfKuygLLr/pub?start=true&loop=false&delayms=3000&slide=id.p))
 
 
 ## Built With
